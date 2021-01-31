@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E114B6B4-C66B-4C64-8DD1-273A970C586D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>TrackYourWorkers</RootNamespace>
+    <AssemblyName>TrackYourWorkers</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1427.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1427.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1427.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1427.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.WebForms.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1427.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ComboBoxItem.cs" />
+    <Compile Include="DodajRadnoMjesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodajRadnoMjesto.Designer.cs">
+      <DependentUpon>DodajRadnoMjesto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DodajStudenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodajStudenta.Designer.cs">
+      <DependentUpon>DodajStudenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DodajUgovor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodajUgovor.Designer.cs">
+      <DependentUpon>DodajUgovor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputForm.Designer.cs">
+      <DependentUpon>InputForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IsplaceniUgovori.cs">
+      <DependentUpon>RadniSatiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OibForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OibForm.Designer.cs">
+      <DependentUpon>OibForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OtvoreniUgovori.cs">
+      <DependentUpon>RadniSatiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pocetna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pocetna.Designer.cs">
+      <DependentUpon>Pocetna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PodnesiUgovor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PodnesiUgovor.Designer.cs">
+      <DependentUpon>PodnesiUgovor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RadnaMjesta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RadnaMjesta.Designer.cs">
+      <DependentUpon>RadnaMjesta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RadniSatiModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RadniSatiModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RadniSatiModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RadniSatiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RadniSatiModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RadniSatiModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="RadnoMjesto.cs">
+      <DependentUpon>RadniSatiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm.Designer.cs">
+      <DependentUpon>ReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>RadniSatiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>RadniSatiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Student.cs">
+      <DependentUpon>RadniSatiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Studenti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Studenti.Designer.cs">
+      <DependentUpon>Studenti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ugovor.cs">
+      <DependentUpon>RadniSatiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ugovori.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ugovori.Designer.cs">
+      <DependentUpon>Ugovori.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="DodajRadnoMjesto.resx">
+      <DependentUpon>DodajRadnoMjesto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DodajStudenta.resx">
+      <DependentUpon>DodajStudenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DodajUgovor.resx">
+      <DependentUpon>DodajUgovor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputForm.resx">
+      <DependentUpon>InputForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OibForm.resx">
+      <DependentUpon>OibForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pocetna.resx">
+      <DependentUpon>Pocetna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PodnesiUgovor.resx">
+      <DependentUpon>PodnesiUgovor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="RadnaMjesta.resx">
+      <DependentUpon>RadnaMjesta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm.resx">
+      <DependentUpon>ReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Izvjestaj.rdlc" />
+    <EmbeddedResource Include="Studenti.resx">
+      <DependentUpon>Studenti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ugovori.resx">
+      <DependentUpon>Ugovori.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="IsplaceniUgovori.datasource" />
+    <None Include="OtvoreniUgovori1.datasource" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="RadnoMjesto.datasource" />
+    <None Include="Student2.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="RadniSatiModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RadniSatiModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="RadniSatiModel.edmx.diagram">
+      <DependentUpon>RadniSatiModel.edmx</DependentUpon>
+    </None>
+    <None Include="Resources\pozadina.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="RadniSatiModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>RadniSatiModel.Context.cs</LastGenOutput>
+      <DependentUpon>RadniSatiModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="RadniSatiModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RadniSatiModel.edmx</DependentUpon>
+      <LastGenOutput>RadniSatiModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

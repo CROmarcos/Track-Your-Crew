@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Textbox Name="Student">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!Student.Value, "ReportDataSet")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Student</rd:DefaultName>
+        <Top>2.24578cm</Top>
+        <Left>3.48933cm</Left>
+        <Height>0.6cm</Height>
+        <Width>3.74354cm</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Ime i prezime</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox2</rd:DefaultName>
+        <Top>1.3462cm</Top>
+        <Left>3.48933cm</Left>
+        <Height>0.6cm</Height>
+        <Width>3.74354cm</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox3">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>OIB</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox3</rd:DefaultName>
+        <Top>1.3462cm</Top>
+        <Left>9.81287cm</Left>
+        <Height>0.6cm</Height>
+        <Width>3.08208cm</Width>
+        <ZIndex>2</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="OIB">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!OIB.Value, "ReportDataSet")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>OIB</rd:DefaultName>
+        <Top>2.24578cm</Top>
+        <Left>9.81287cm</Left>
+        <Height>0.6cm</Height>
+        <Width>3.08208cm</Width>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="NazivRadnogMjesta">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!NazivRadnogMjesta.Value, "ReportDataSet")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>NazivRadnogMjesta</rd:DefaultName>
+        <Top>6.90245cm</Top>
+        <Left>2.2987cm</Left>
+        <Height>0.6cm</Height>
+        <Width>3.92875cm</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox6">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Radno mjesto</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox6</rd:DefaultName>
+        <Top>5.94995cm</Top>
+        <Left>2.2987cm</Left>
+        <Height>0.6cm</Height>
+        <Width>3.92875cm</Width>
+        <ZIndex>5</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Image Name="Image1">
+        <Source>Embedded</Source>
+        <Value>podaciostudentu</Value>
+        <Sizing>FitProportional</Sizing>
+        <Top>0.03528cm</Top>
+        <Height>4.50384cm</Height>
+        <Width>2.18792cm</Width>
+        <ZIndex>6</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Line Name="Line1">
+        <Height>0cm</Height>
+        <Width>15.68979cm</Width>
+        <ZIndex>7</ZIndex>
+        <Style>
+          <Border>
+            <Color>Maroon</Color>
+            <Style>Solid</Style>
+            <Width>4pt</Width>
+          </Border>
+        </Style>
+      </Line>
+      <Image Name="Image2">
+        <Source>Embedded</Source>
+        <Value>detaljiposla</Value>
+        <Sizing>FitProportional</Sizing>
+        <Top>5.93549cm</Top>
+        <Left>13.34312cm</Left>
+        <Height>4.50384cm</Height>
+        <Width>2.34667cm</Width>
+        <ZIndex>8</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Textbox Name="BrojRadnihSati">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!BrojRadnihSati.Value, "ReportDataSet")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>BrojRadnihSati</rd:DefaultName>
+        <Top>6.90245cm</Top>
+        <Left>7.53745cm</Left>
+        <Height>0.6cm</Height>
+        <Width>3.63771cm</Width>
+        <ZIndex>9</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox9">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Odrađeno sati</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox9</rd:DefaultName>
+        <Top>5.94995cm</Top>
+        <Left>7.53745cm</Left>
+        <Height>0.6cm</Height>
+        <Width>3.63771cm</Width>
+        <ZIndex>10</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Iznos">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!Iznos.Value, "ReportDataSet")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Iznos</rd:DefaultName>
+        <Top>9.21342cm</Top>
+        <Left>4.75933cm</Left>
+        <Height>0.6cm</Height>
+        <Width>4.51083cm</Width>
+        <ZIndex>11</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox11">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Ukupna zarada</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox11</rd:DefaultName>
+        <Top>8.22537cm</Top>
+        <Left>4.75933cm</Left>
+        <Height>0.62646cm</Height>
+        <Width>4.51083cm</Width>
+        <ZIndex>12</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+    </ReportItems>
+    <Height>4.10997in</Height>
+    <Style />
+  </Body>
+  <Width>6.186in</Width>
+  <Page>
+    <PageHeader>
+      <Height>2.2225cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Mjesec">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Studentski ugovor za mjesec </Value>
+                  <Style>
+                    <FontSize>16pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <Color>Brown</Color>
+                  </Style>
+                </TextRun>
+                <TextRun>
+                  <Value>=First(Fields!Mjesec.Value, "ReportDataSet")</Value>
+                  <Style>
+                    <FontSize>16pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <Color>Brown</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Mjesec</rd:DefaultName>
+          <Top>0.76412cm</Top>
+          <Left>1.31974cm</Left>
+          <Height>0.81167cm</Height>
+          <Width>12.66cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+        <BackgroundColor>LightGrey</BackgroundColor>
+      </Style>
+    </PageHeader>
+    <PageFooter>
+      <Height>1.48167cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox12">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>TrackYourCrew</Value>
+                  <Style>
+                    <FontFamily>Gabriola</FontFamily>
+                    <FontSize>16pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <Color>Brown</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox12</rd:DefaultName>
+          <Top>0.17638cm</Top>
+          <Left>0.26141cm</Left>
+          <Height>1.12507cm</Height>
+          <Width>3.24084cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox13">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Ugovor ispisan: </Value>
+                  <Style>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+                <TextRun>
+                  <Value>=DateTime.Now</Value>
+                  <Style>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox13</rd:DefaultName>
+          <Top>0.49388cm</Top>
+          <Left>8.25183cm</Left>
+          <Height>0.54299cm</Height>
+          <Width>7.43796cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+        <BackgroundColor>LightGrey</BackgroundColor>
+      </Style>
+    </PageFooter>
+    <PageHeight>29.7cm</PageHeight>
+    <PageWidth>21cm</PageWidth>
+    <LeftMargin>2cm</LeftMargin>
+    <RightMargin>2cm</RightMargin>
+    <TopMargin>2cm</TopMargin>
+    <BottomMargin>2cm</BottomMargin>
+    <ColumnSpacing>0.13cm</ColumnSpacing>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="TrackYourWorkers">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>2da8f0cf-1602-47fc-ad3d-53f60bacd884</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="ReportDataSet">
+      <Query>
+        <DataSourceName>TrackYourWorkers</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="BrojRadnihSati">
+          <DataField>BrojRadnihSati</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="Iznos">
+          <DataField>Iznos</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Mjesec">
+          <DataField>Mjesec</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NazivRadnogMjesta">
+          <DataField>NazivRadnogMjesta</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OIB">
+          <DataField>OIB</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Student">
+          <DataField>Student</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>TrackYourWorkers</rd:DataSetName>
+        <rd:TableName>IsplaceniUgovori</rd:TableName>
+        <rd:ObjectDataSourceType>TrackYourWorkers.IsplaceniUgovori, TrackYourWorkers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <EmbeddedImages>
+    <EmbeddedImage Name="podaciostudentu">
+      <MIMEType>image/jpeg</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+    <EmbeddedImage Name="detaljiposla">
+      <MIMEType>image/jpeg</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>3b18eeb7-4ed8-4a95-97b9-1d799d0b993d</rd:ReportID>
+</Report>

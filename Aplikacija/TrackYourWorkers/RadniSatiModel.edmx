@@ -1,0 +1,417 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RadniSatiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="RadnoMjesto">
+          <Key>
+            <PropertyRef Name="RadnoMjestoId" />
+          </Key>
+          <Property Name="RadnoMjestoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NazivRadnogMjesta" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OpisRadnogMjesta" Type="varchar" MaxLength="255" />
+          <Property Name="CijenaRadnogSata" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="RadnikId" />
+          </Key>
+          <Property Name="RadnikId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ime" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Prezime" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OIB" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="Fakultet" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="GodinaRodjenja" Type="int" Nullable="false" />
+          <Property Name="Mobitel" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ugovor">
+          <Key>
+            <PropertyRef Name="UgovorId" />
+          </Key>
+          <Property Name="UgovorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Student" Type="int" Nullable="false" />
+          <Property Name="Mjesec" Type="varchar" MaxLength="10" />
+          <Property Name="RadnoMjesto" Type="int" Nullable="false" />
+          <Property Name="BrojRadnihSati" Type="int" />
+          <Property Name="DatumOtvaranja" Type="date" Nullable="false" />
+          <Property Name="Iznos" Type="money" />
+          <Property Name="Isplaceno" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'RadniSati.dbo.IsplaceniUgovori' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="IsplaceniUgovori">
+          <Key>
+            <PropertyRef Name="Student" />
+            <PropertyRef Name="OIB" />
+            <PropertyRef Name="NazivRadnogMjesta" />
+          </Key>
+          <Property Name="Student" Type="varchar" MaxLength="101" Nullable="false" />
+          <Property Name="OIB" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="Mjesec" Type="varchar" MaxLength="10" />
+          <Property Name="NazivRadnogMjesta" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BrojRadnihSati" Type="int" />
+          <Property Name="Iznos" Type="varchar" MaxLength="33" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'RadniSati.dbo.OtvoreniUgovori' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="OtvoreniUgovori">
+          <Key>
+            <PropertyRef Name="Student" />
+            <PropertyRef Name="OIB" />
+            <PropertyRef Name="NazivRadnogMjesta" />
+          </Key>
+          <Property Name="Student" Type="varchar" MaxLength="101" Nullable="false" />
+          <Property Name="OIB" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="Mjesec" Type="varchar" MaxLength="10" />
+          <Property Name="NazivRadnogMjesta" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Ugovor_RadnoMjesto">
+          <End Role="RadnoMjesto" Type="Self.RadnoMjesto" Multiplicity="1" />
+          <End Role="Ugovor" Type="Self.Ugovor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RadnoMjesto">
+              <PropertyRef Name="RadnoMjestoId" />
+            </Principal>
+            <Dependent Role="Ugovor">
+              <PropertyRef Name="RadnoMjesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ugovor_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Ugovor" Type="Self.Ugovor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="RadnikId" />
+            </Principal>
+            <Dependent Role="Ugovor">
+              <PropertyRef Name="Student" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="RadniSatiModelStoreContainer">
+          <EntitySet Name="RadnoMjesto" EntityType="Self.RadnoMjesto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ugovor" EntityType="Self.Ugovor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IsplaceniUgovori" EntityType="Self.IsplaceniUgovori" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [IsplaceniUgovori].[Student] AS [Student], 
+    [IsplaceniUgovori].[OIB] AS [OIB], 
+    [IsplaceniUgovori].[Mjesec] AS [Mjesec], 
+    [IsplaceniUgovori].[NazivRadnogMjesta] AS [NazivRadnogMjesta], 
+    [IsplaceniUgovori].[BrojRadnihSati] AS [BrojRadnihSati], 
+    [IsplaceniUgovori].[Iznos] AS [Iznos]
+    FROM [dbo].[IsplaceniUgovori] AS [IsplaceniUgovori]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="OtvoreniUgovori" EntityType="Self.OtvoreniUgovori" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [OtvoreniUgovori].[Student] AS [Student], 
+    [OtvoreniUgovori].[OIB] AS [OIB], 
+    [OtvoreniUgovori].[Mjesec] AS [Mjesec], 
+    [OtvoreniUgovori].[NazivRadnogMjesta] AS [NazivRadnogMjesta]
+    FROM [dbo].[OtvoreniUgovori] AS [OtvoreniUgovori]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Ugovor_RadnoMjesto" Association="Self.FK_Ugovor_RadnoMjesto">
+            <End Role="RadnoMjesto" EntitySet="RadnoMjesto" />
+            <End Role="Ugovor" EntitySet="Ugovor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ugovor_Student" Association="Self.FK_Ugovor_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Ugovor" EntitySet="Ugovor" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RadniSatiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="RadnoMjesto">
+          <Key>
+            <PropertyRef Name="RadnoMjestoId" />
+          </Key>
+          <Property Name="RadnoMjestoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NazivRadnogMjesta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OpisRadnogMjesta" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CijenaRadnogSata" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="Ugovor" Relationship="Self.FK_Ugovor_RadnoMjesto" FromRole="RadnoMjesto" ToRole="Ugovor" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="RadnikId" />
+          </Key>
+          <Property Name="RadnikId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Prezime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OIB" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fakultet" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GodinaRodjenja" Type="Int32" Nullable="false" />
+          <Property Name="Mobitel" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Ugovor" Relationship="Self.FK_Ugovor_Student" FromRole="Student" ToRole="Ugovor" />
+        </EntityType>
+        <EntityType Name="Ugovor">
+          <Key>
+            <PropertyRef Name="UgovorId" />
+          </Key>
+          <Property Name="UgovorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Student" Type="Int32" Nullable="false" />
+          <Property Name="Mjesec" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="RadnoMjesto" Type="Int32" Nullable="false" />
+          <Property Name="BrojRadnihSati" Type="Int32" />
+          <Property Name="DatumOtvaranja" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Iznos" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Isplaceno" Type="Boolean" />
+          <NavigationProperty Name="RadnoMjesto1" Relationship="Self.FK_Ugovor_RadnoMjesto" FromRole="Ugovor" ToRole="RadnoMjesto" />
+          <NavigationProperty Name="Student1" Relationship="Self.FK_Ugovor_Student" FromRole="Ugovor" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="IsplaceniUgovori">
+          <Key>
+            <PropertyRef Name="Student" />
+            <PropertyRef Name="NazivRadnogMjesta" />
+            <PropertyRef Name="OIB" />
+          </Key>
+          <Property Name="Student" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Mjesec" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="NazivRadnogMjesta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BrojRadnihSati" Type="Int32" />
+          <Property Name="Iznos" Type="String" />
+          <Property Name="OIB" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="OtvoreniUgovori">
+          <Key>
+            <PropertyRef Name="Student" />
+            <PropertyRef Name="NazivRadnogMjesta" />
+            <PropertyRef Name="OIB" />
+          </Key>
+          <Property Name="Student" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Mjesec" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="NazivRadnogMjesta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OIB" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_Ugovor_RadnoMjesto">
+          <End Role="RadnoMjesto" Type="Self.RadnoMjesto" Multiplicity="1" />
+          <End Role="Ugovor" Type="Self.Ugovor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RadnoMjesto">
+              <PropertyRef Name="RadnoMjestoId" />
+            </Principal>
+            <Dependent Role="Ugovor">
+              <PropertyRef Name="RadnoMjesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ugovor_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Ugovor" Type="Self.Ugovor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="RadnikId" />
+            </Principal>
+            <Dependent Role="Ugovor">
+              <PropertyRef Name="Student" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RadniSatiEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="RadnoMjesto" EntityType="Self.RadnoMjesto" />
+          <EntitySet Name="Student" EntityType="Self.Student" />
+          <EntitySet Name="Ugovor" EntityType="Self.Ugovor" />
+          <EntitySet Name="IsplaceniUgovori" EntityType="Self.IsplaceniUgovori" />
+          <EntitySet Name="OtvoreniUgovori" EntityType="Self.OtvoreniUgovori" />
+          <AssociationSet Name="FK_Ugovor_RadnoMjesto" Association="Self.FK_Ugovor_RadnoMjesto">
+            <End Role="RadnoMjesto" EntitySet="RadnoMjesto" />
+            <End Role="Ugovor" EntitySet="Ugovor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ugovor_Student" Association="Self.FK_Ugovor_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Ugovor" EntitySet="Ugovor" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(RadniSatiModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(RadniSatiModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RadniSatiModelStoreContainer" CdmEntityContainer="RadniSatiEntities">
+          <EntitySetMapping Name="RadnoMjesto">
+            <EntityTypeMapping TypeName="RadniSatiModel.RadnoMjesto">
+              <MappingFragment StoreEntitySet="RadnoMjesto">
+                <ScalarProperty Name="RadnoMjestoId" ColumnName="RadnoMjestoId" />
+                <ScalarProperty Name="NazivRadnogMjesta" ColumnName="NazivRadnogMjesta" />
+                <ScalarProperty Name="OpisRadnogMjesta" ColumnName="OpisRadnogMjesta" />
+                <ScalarProperty Name="CijenaRadnogSata" ColumnName="CijenaRadnogSata" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Student">
+            <EntityTypeMapping TypeName="RadniSatiModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="RadnikId" ColumnName="RadnikId" />
+                <ScalarProperty Name="Ime" ColumnName="Ime" />
+                <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+                <ScalarProperty Name="OIB" ColumnName="OIB" />
+                <ScalarProperty Name="Fakultet" ColumnName="Fakultet" />
+                <ScalarProperty Name="GodinaRodjenja" ColumnName="GodinaRodjenja" />
+                <ScalarProperty Name="Mobitel" ColumnName="Mobitel" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ugovor">
+            <EntityTypeMapping TypeName="RadniSatiModel.Ugovor">
+              <MappingFragment StoreEntitySet="Ugovor">
+                <ScalarProperty Name="UgovorId" ColumnName="UgovorId" />
+                <ScalarProperty Name="Student" ColumnName="Student" />
+                <ScalarProperty Name="Mjesec" ColumnName="Mjesec" />
+                <ScalarProperty Name="RadnoMjesto" ColumnName="RadnoMjesto" />
+                <ScalarProperty Name="BrojRadnihSati" ColumnName="BrojRadnihSati" />
+                <ScalarProperty Name="DatumOtvaranja" ColumnName="DatumOtvaranja" />
+                <ScalarProperty Name="Iznos" ColumnName="Iznos" />
+                <ScalarProperty Name="Isplaceno" ColumnName="Isplaceno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IsplaceniUgovori">
+            <EntityTypeMapping TypeName="RadniSatiModel.IsplaceniUgovori">
+              <MappingFragment StoreEntitySet="IsplaceniUgovori">
+                <ScalarProperty Name="OIB" ColumnName="OIB" />
+                <ScalarProperty Name="Student" ColumnName="Student" />
+                <ScalarProperty Name="Mjesec" ColumnName="Mjesec" />
+                <ScalarProperty Name="NazivRadnogMjesta" ColumnName="NazivRadnogMjesta" />
+                <ScalarProperty Name="BrojRadnihSati" ColumnName="BrojRadnihSati" />
+                <ScalarProperty Name="Iznos" ColumnName="Iznos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OtvoreniUgovori">
+            <EntityTypeMapping TypeName="RadniSatiModel.OtvoreniUgovori">
+              <MappingFragment StoreEntitySet="OtvoreniUgovori">
+                <ScalarProperty Name="OIB" ColumnName="OIB" />
+                <ScalarProperty Name="Student" ColumnName="Student" />
+                <ScalarProperty Name="Mjesec" ColumnName="Mjesec" />
+                <ScalarProperty Name="NazivRadnogMjesta" ColumnName="NazivRadnogMjesta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="RadniSatiModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="RadniSatiModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="RadniSatiModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="RadniSatiModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RadniSatiModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="RadniSatiModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RadniSatiModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="RadniSatiModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="RadniSatiModel.Store.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

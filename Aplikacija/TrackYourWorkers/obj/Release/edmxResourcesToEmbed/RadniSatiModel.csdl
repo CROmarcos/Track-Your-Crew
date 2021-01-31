@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RadniSatiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="RadnoMjesto">
+    <Key>
+      <PropertyRef Name="RadnoMjestoId" />
+    </Key>
+    <Property Name="RadnoMjestoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NazivRadnogMjesta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="OpisRadnogMjesta" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CijenaRadnogSata" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="Ugovor" Relationship="Self.FK_Ugovor_RadnoMjesto" FromRole="RadnoMjesto" ToRole="Ugovor" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="RadnikId" />
+    </Key>
+    <Property Name="RadnikId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Prezime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="OIB" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Fakultet" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="GodinaRodjenja" Type="Int32" Nullable="false" />
+    <Property Name="Mobitel" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Ugovor" Relationship="Self.FK_Ugovor_Student" FromRole="Student" ToRole="Ugovor" />
+  </EntityType>
+  <EntityType Name="Ugovor">
+    <Key>
+      <PropertyRef Name="UgovorId" />
+    </Key>
+    <Property Name="UgovorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Student" Type="Int32" Nullable="false" />
+    <Property Name="Mjesec" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="RadnoMjesto" Type="Int32" Nullable="false" />
+    <Property Name="BrojRadnihSati" Type="Int32" />
+    <Property Name="DatumOtvaranja" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Iznos" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Isplaceno" Type="Boolean" />
+    <NavigationProperty Name="RadnoMjesto1" Relationship="Self.FK_Ugovor_RadnoMjesto" FromRole="Ugovor" ToRole="RadnoMjesto" />
+    <NavigationProperty Name="Student1" Relationship="Self.FK_Ugovor_Student" FromRole="Ugovor" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="IsplaceniUgovori">
+    <Key>
+      <PropertyRef Name="Student" />
+      <PropertyRef Name="NazivRadnogMjesta" />
+      <PropertyRef Name="OIB" />
+    </Key>
+    <Property Name="Student" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Mjesec" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NazivRadnogMjesta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BrojRadnihSati" Type="Int32" />
+    <Property Name="Iznos" Type="String" />
+    <Property Name="OIB" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="OtvoreniUgovori">
+    <Key>
+      <PropertyRef Name="Student" />
+      <PropertyRef Name="NazivRadnogMjesta" />
+      <PropertyRef Name="OIB" />
+    </Key>
+    <Property Name="Student" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Mjesec" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NazivRadnogMjesta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="OIB" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_Ugovor_RadnoMjesto">
+    <End Role="RadnoMjesto" Type="Self.RadnoMjesto" Multiplicity="1" />
+    <End Role="Ugovor" Type="Self.Ugovor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RadnoMjesto">
+        <PropertyRef Name="RadnoMjestoId" />
+      </Principal>
+      <Dependent Role="Ugovor">
+        <PropertyRef Name="RadnoMjesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ugovor_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="Ugovor" Type="Self.Ugovor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="RadnikId" />
+      </Principal>
+      <Dependent Role="Ugovor">
+        <PropertyRef Name="Student" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RadniSatiEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="RadnoMjesto" EntityType="Self.RadnoMjesto" />
+    <EntitySet Name="Student" EntityType="Self.Student" />
+    <EntitySet Name="Ugovor" EntityType="Self.Ugovor" />
+    <EntitySet Name="IsplaceniUgovori" EntityType="Self.IsplaceniUgovori" />
+    <EntitySet Name="OtvoreniUgovori" EntityType="Self.OtvoreniUgovori" />
+    <AssociationSet Name="FK_Ugovor_RadnoMjesto" Association="Self.FK_Ugovor_RadnoMjesto">
+      <End Role="RadnoMjesto" EntitySet="RadnoMjesto" />
+      <End Role="Ugovor" EntitySet="Ugovor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ugovor_Student" Association="Self.FK_Ugovor_Student">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="Ugovor" EntitySet="Ugovor" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(RadniSatiModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(RadniSatiModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>
