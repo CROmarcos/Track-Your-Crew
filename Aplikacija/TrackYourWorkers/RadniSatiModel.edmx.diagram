@@ -12,6 +12,7 @@
         <EntityTypeShape EntityType="RadniSatiModel.OtvoreniUgovori" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="RadniSatiModel.FK_Ugovor_RadnoMjesto" ManuallyRouted="false" />
         <AssociationConnector Association="RadniSatiModel.FK_Ugovor_Student" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="RadniSatiModel.Korisnik" Width="1.5" PointX="7.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

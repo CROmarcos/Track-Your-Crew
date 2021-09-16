@@ -13,6 +13,8 @@ namespace TrackYourWorkers
 {
     public partial class DodajUgovor : Form
     {
+        private BindingList<Student> listaStudenata;
+        private BindingList<RadnoMjesto> listaRM;
         public DodajUgovor()
         {
             InitializeComponent();
@@ -25,8 +27,8 @@ namespace TrackYourWorkers
 
         private void FillTheCombo()
         {
-            BindingList<Student> listaStudenata = null;
-            BindingList<RadnoMjesto> listaRM = null;
+            listaStudenata = null;
+            listaRM = null;
             using (var db = new RadniSatiEntities())
             {
                 listaStudenata = new BindingList<Student>(db.Student.ToList());

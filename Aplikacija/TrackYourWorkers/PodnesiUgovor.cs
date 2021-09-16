@@ -51,19 +51,27 @@ namespace TrackYourWorkers
 
         private void btnIzracunaj_Click(object sender, EventArgs e)
         {
-            lbIznos.Text = "Ukupan iznos: " + (Convert.ToInt32(tbRS.Text) * radniSat).ToString() + " kn";
+            bool ispravno = provjeriBrojSati(Convert.ToInt32(tbRS.Text));
+            if (ispravno)
+            {
+                lbIznos.Text = "Ukupan iznos: " + (Convert.ToInt32(tbRS.Text) * radniSat).ToString() + " kn";
+            }
         }
 
         private void btnPodnesi_Click(object sender, EventArgs e)
         {
             if (tbRS.Text != null)
             {
-                using (var db = new RadniSatiEntities())
+                bool ispravno = provjeriBrojSati(Convert.ToInt32(tbRS.Text));
+                if (ispravno)
                 {
-                    db.Ugovor.Attach(ugovor);
-                    ugovor.BrojRadnihSati = Convert.ToInt32(tbRS.Text);
-                    db.SaveChanges();
-                    Close();
+                    using (var db = new RadniSatiEntities())
+                    {
+                        db.Ugovor.Attach(ugovor);
+                        ugovor.BrojRadnihSati = Convert.ToInt32(tbRS.Text);
+                        db.SaveChanges();
+                        Close();
+                    }
                 }
             }
         }
@@ -73,6 +81,19 @@ namespace TrackYourWorkers
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        private bool provjeriBrojSati(int brSati)
+        {
+            if (brSati > 160)
+            {
+                MessageBox.Show("Student ne smije raditi preko 160 sati mjesečno!");
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
     }

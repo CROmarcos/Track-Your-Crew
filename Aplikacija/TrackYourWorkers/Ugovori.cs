@@ -12,9 +12,11 @@ namespace TrackYourWorkers
 {
     public partial class Ugovori : Form
     {
-        public Ugovori()
+        private string korisnik;
+        public Ugovori(string user)
         {
             InitializeComponent();
+            korisnik = user;            
         }
 
         private void Ugovori_Load(object sender, EventArgs e)
@@ -23,6 +25,12 @@ namespace TrackYourWorkers
             dataGridView1.Columns[1].Width = 70;
             dataGridView1.Columns[2].Width = 130;
             PrikaziUgovore();
+            if (korisnik == "zaposlenik")
+            {
+                btnOtkaziUgovor.Hide();
+                btnPodnesiUgovor.Hide();
+                Height = 268;
+            }
         }
 
         private void PrikaziUgovore()

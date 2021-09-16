@@ -12,14 +12,24 @@ namespace TrackYourWorkers
 {
     public partial class Pocetna : Form
     {
-        public Pocetna()
+        private string korisnik;
+        public Pocetna(string user)
         {
             InitializeComponent();
+            korisnik=user;
+            if (korisnik == "manager")
+            {
+                label1.Text += " projektni menadžer!";
+            }
+            else
+            {
+                label1.Text += " " + user + "!";
+            }
         }
 
         private void btnStudenti_Click(object sender, EventArgs e)
         {
-            Studenti forma = new Studenti();
+            Studenti forma = new Studenti(korisnik);
             forma.ShowDialog();
         }
 
@@ -31,8 +41,22 @@ namespace TrackYourWorkers
 
         private void btnUgovori_Click(object sender, EventArgs e)
         {
-            Ugovori forma = new Ugovori();
+            Ugovori forma = new Ugovori(korisnik);
             forma.ShowDialog();
+        }
+
+        private void Pocetna_Load(object sender, EventArgs e)
+        {
+            label1.BackColor = Color.Transparent;
+            lbOdjava.BackColor = Color.Transparent;
+        }
+
+        private void lbOdjava_Click(object sender, EventArgs e)
+        {
+            Hide();
+            LoginForm forma = new LoginForm();
+            forma.ShowDialog();
+            Close();
         }
     }
 }

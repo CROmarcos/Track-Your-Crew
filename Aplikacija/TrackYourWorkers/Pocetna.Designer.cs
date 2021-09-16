@@ -32,6 +32,8 @@
             this.btnStudenti = new System.Windows.Forms.Button();
             this.btnRadnaMjesta = new System.Windows.Forms.Button();
             this.btnUgovori = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbOdjava = new System.Windows.Forms.Label();
             this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -77,6 +79,30 @@
             this.btnUgovori.UseVisualStyleBackColor = true;
             this.btnUgovori.Click += new System.EventHandler(this.btnUgovori_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(173, 26);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Prijavljeni ste kao";
+            // 
+            // lbOdjava
+            // 
+            this.lbOdjava.AutoSize = true;
+            this.lbOdjava.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbOdjava.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbOdjava.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lbOdjava.Location = new System.Drawing.Point(844, 9);
+            this.lbOdjava.Name = "lbOdjava";
+            this.lbOdjava.Size = new System.Drawing.Size(96, 26);
+            this.lbOdjava.TabIndex = 4;
+            this.lbOdjava.Text = "Odjavi se";
+            this.lbOdjava.Click += new System.EventHandler(this.lbOdjava_Click);
+            // 
             // studentBindingSource
             // 
             this.studentBindingSource.DataSource = typeof(TrackYourWorkers.Student);
@@ -88,6 +114,8 @@
             this.AutoSize = true;
             this.BackgroundImage = global::TrackYourWorkers.Properties.Resources.pozadina;
             this.ClientSize = new System.Drawing.Size(952, 526);
+            this.Controls.Add(this.lbOdjava);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnUgovori);
             this.Controls.Add(this.btnRadnaMjesta);
             this.Controls.Add(this.btnStudenti);
@@ -95,8 +123,10 @@
             this.Name = "Pocetna";
             this.ShowInTaskbar = false;
             this.Text = "Track Your Crew";
+            this.Load += new System.EventHandler(this.Pocetna_Load);
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -106,6 +136,8 @@
         private System.Windows.Forms.Button btnRadnaMjesta;
         private System.Windows.Forms.Button btnUgovori;
         private System.Windows.Forms.BindingSource studentBindingSource;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbOdjava;
     }
 }
 

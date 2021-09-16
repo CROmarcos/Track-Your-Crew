@@ -48,7 +48,7 @@ namespace TrackYourWorkers
             this.btnOtvoriUgovor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOtvoriUgovor.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOtvoriUgovor.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnOtvoriUgovor.Location = new System.Drawing.Point(127, 239);
+            this.btnOtvoriUgovor.Location = new System.Drawing.Point(129, 194);
             this.btnOtvoriUgovor.Name = "btnOtvoriUgovor";
             this.btnOtvoriUgovor.Size = new System.Drawing.Size(172, 25);
             this.btnOtvoriUgovor.TabIndex = 0;
@@ -62,7 +62,7 @@ namespace TrackYourWorkers
             this.btnPodnesiUgovor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPodnesiUgovor.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPodnesiUgovor.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnPodnesiUgovor.Location = new System.Drawing.Point(31, 200);
+            this.btnPodnesiUgovor.Location = new System.Drawing.Point(44, 231);
             this.btnPodnesiUgovor.Name = "btnPodnesiUgovor";
             this.btnPodnesiUgovor.Size = new System.Drawing.Size(172, 25);
             this.btnPodnesiUgovor.TabIndex = 1;
@@ -94,7 +94,7 @@ namespace TrackYourWorkers
             this.btnOtkaziUgovor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOtkaziUgovor.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOtkaziUgovor.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnOtkaziUgovor.Location = new System.Drawing.Point(237, 200);
+            this.btnOtkaziUgovor.Location = new System.Drawing.Point(232, 231);
             this.btnOtkaziUgovor.Name = "btnOtkaziUgovor";
             this.btnOtkaziUgovor.Size = new System.Drawing.Size(172, 25);
             this.btnOtkaziUgovor.TabIndex = 4;
@@ -132,7 +132,7 @@ namespace TrackYourWorkers
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.ClientSize = new System.Drawing.Size(442, 276);
+            this.ClientSize = new System.Drawing.Size(442, 270);
             this.Controls.Add(this.btnOtkaziUgovor);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnPodnesiUgovor);

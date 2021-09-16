@@ -51,6 +51,7 @@
             this.isplaceniUgovoriBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnObrisi = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudenti)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUgovori)).BeginInit();
@@ -263,12 +264,27 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnObrisi
+            // 
+            this.btnObrisi.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnObrisi.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnObrisi.Font = new System.Drawing.Font("Palatino Linotype", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnObrisi.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btnObrisi.Location = new System.Drawing.Point(498, 386);
+            this.btnObrisi.Name = "btnObrisi";
+            this.btnObrisi.Size = new System.Drawing.Size(242, 33);
+            this.btnObrisi.TabIndex = 6;
+            this.btnObrisi.Text = "Obriši studenta";
+            this.btnObrisi.UseVisualStyleBackColor = false;
+            this.btnObrisi.Click += new System.EventHandler(this.btnObrisi_Click);
+            // 
             // Studenti
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.ClientSize = new System.Drawing.Size(791, 384);
+            this.ClientSize = new System.Drawing.Size(791, 437);
+            this.Controls.Add(this.btnObrisi);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvUgovori);
@@ -321,5 +337,6 @@
         private System.Windows.Forms.BindingSource isplaceniUgovoriBindingSource;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnObrisi;
     }
 }

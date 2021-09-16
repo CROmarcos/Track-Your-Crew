@@ -16,7 +16,7 @@ namespace TrackYourWorkers
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Pocetna());
+            Application.Run(new LoginForm());
         }
     }
 }

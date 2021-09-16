@@ -49,7 +49,7 @@
     <Property Name="Mjesec" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="NazivRadnogMjesta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="BrojRadnihSati" Type="Int32" />
-    <Property Name="Iznos" Type="String" />
+    <Property Name="Iznos" Type="String" MaxLength="33" Unicode="false" FixedLength="false" />
     <Property Name="OIB" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="OtvoreniUgovori">
@@ -131,6 +131,7 @@
       <Parameter Name="new_diagramname" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="Korisnik" EntityType="RadniSatiModel.Korisnik" />
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -143,4 +144,13 @@
     <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
     <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
+  <EntityType Name="Korisnik">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="KorisnickoIme" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KorisnickoIme" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Lozinka" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

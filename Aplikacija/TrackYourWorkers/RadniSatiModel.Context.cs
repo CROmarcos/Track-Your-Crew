@@ -32,6 +32,7 @@ namespace TrackYourWorkers
         public virtual DbSet<Ugovor> Ugovor { get; set; }
         public virtual DbSet<IsplaceniUgovori> IsplaceniUgovori { get; set; }
         public virtual DbSet<OtvoreniUgovori> OtvoreniUgovori { get; set; }
+        public virtual DbSet<Korisnik> Korisnik { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

@@ -5,6 +5,17 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="RadniSatiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'RadniSati.dbo.Korisnik' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Korisnik">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="KorisnickoIme" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KorisnickoIme" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Lozinka" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="RadnoMjesto">
           <Key>
             <PropertyRef Name="RadnoMjestoId" />
@@ -127,6 +138,13 @@ warning 6002: The table/view 'RadniSati.dbo.OtvoreniUgovori' does not have a pri
           <EntitySet Name="RadnoMjesto" EntityType="Self.RadnoMjesto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ugovor" EntityType="Self.Ugovor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Korisnik" EntityType="Self.Korisnik" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Korisnik].[Id] AS [Id], 
+    [Korisnik].[KorisnickoIme] AS [KorisnickoIme], 
+    [Korisnik].[Lozinka] AS [Lozinka]
+    FROM [dbo].[Korisnik] AS [Korisnik]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="IsplaceniUgovori" EntityType="Self.IsplaceniUgovori" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [IsplaceniUgovori].[Student] AS [Student], 
@@ -207,7 +225,7 @@ warning 6002: The table/view 'RadniSati.dbo.OtvoreniUgovori' does not have a pri
           <Property Name="Mjesec" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="NazivRadnogMjesta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="BrojRadnihSati" Type="Int32" />
-          <Property Name="Iznos" Type="String" />
+          <Property Name="Iznos" Type="String" MaxLength="33" Unicode="false" FixedLength="false" />
           <Property Name="OIB" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="OtvoreniUgovori">
@@ -289,6 +307,7 @@ warning 6002: The table/view 'RadniSati.dbo.OtvoreniUgovori' does not have a pri
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="Korisnik" EntityType="RadniSatiModel.Korisnik" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -301,6 +320,15 @@ warning 6002: The table/view 'RadniSati.dbo.OtvoreniUgovori' does not have a pri
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
+        <EntityType Name="Korisnik">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="KorisnickoIme" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KorisnickoIme" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Lozinka" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -391,6 +419,15 @@ warning 6002: The table/view 'RadniSati.dbo.OtvoreniUgovori' does not have a pri
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="RadniSatiModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="RadniSatiModel.Store.sp_upgraddiagrams" />
+          <EntitySetMapping Name="Korisnik">
+            <EntityTypeMapping TypeName="RadniSatiModel.Korisnik">
+              <MappingFragment StoreEntitySet="Korisnik">
+                <ScalarProperty Name="Lozinka" ColumnName="Lozinka" />
+                <ScalarProperty Name="KorisnickoIme" ColumnName="KorisnickoIme" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

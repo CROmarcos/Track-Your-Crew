@@ -242,7 +242,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "DodajStudenta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "DodajStudenta";
+            this.Text = "Unesi studenta";
             this.Load += new System.EventHandler(this.DodajStudenta_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
