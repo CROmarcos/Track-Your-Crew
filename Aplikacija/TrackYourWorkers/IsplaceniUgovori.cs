@@ -20,5 +20,6 @@ namespace TrackYourWorkers
         public Nullable<int> BrojRadnihSati { get; set; }
         public string Iznos { get; set; }
         public string OIB { get; set; }
+        public int Id { get; set; }
     }
 }

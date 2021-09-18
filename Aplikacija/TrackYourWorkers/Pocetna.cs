@@ -16,7 +16,7 @@ namespace TrackYourWorkers
         public Pocetna(string user)
         {
             InitializeComponent();
-            korisnik=user;
+            korisnik = user;
             if (korisnik == "manager")
             {
                 label1.Text += " projektni menadžer!";

@@ -31,15 +31,11 @@ namespace TrackYourWorkers
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.IsplaceniUgovoriBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.btnSpremiPDF = new System.Windows.Forms.Button();
+            this.IsplaceniUgovoriBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.IsplaceniUgovoriBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // IsplaceniUgovoriBindingSource
-            // 
-            this.IsplaceniUgovoriBindingSource.DataSource = typeof(TrackYourWorkers.IsplaceniUgovori);
             // 
             // reportViewer1
             // 
@@ -51,7 +47,7 @@ namespace TrackYourWorkers
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.ShowToolBar = false;
-            this.reportViewer1.Size = new System.Drawing.Size(595, 448);
+            this.reportViewer1.Size = new System.Drawing.Size(600, 554);
             this.reportViewer1.TabIndex = 0;
             // 
             // btnSpremiPDF
@@ -60,7 +56,7 @@ namespace TrackYourWorkers
             this.btnSpremiPDF.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSpremiPDF.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSpremiPDF.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnSpremiPDF.Location = new System.Drawing.Point(260, 469);
+            this.btnSpremiPDF.Location = new System.Drawing.Point(259, 573);
             this.btnSpremiPDF.Name = "btnSpremiPDF";
             this.btnSpremiPDF.Size = new System.Drawing.Size(114, 27);
             this.btnSpremiPDF.TabIndex = 1;
@@ -68,12 +64,16 @@ namespace TrackYourWorkers
             this.btnSpremiPDF.UseVisualStyleBackColor = false;
             this.btnSpremiPDF.Click += new System.EventHandler(this.btnSpremiPDF_Click);
             // 
+            // IsplaceniUgovoriBindingSource
+            // 
+            this.IsplaceniUgovoriBindingSource.DataSource = typeof(TrackYourWorkers.IsplaceniUgovori);
+            // 
             // ReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.ClientSize = new System.Drawing.Size(620, 505);
+            this.ClientSize = new System.Drawing.Size(625, 608);
             this.Controls.Add(this.btnSpremiPDF);
             this.Controls.Add(this.reportViewer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;

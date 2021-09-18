@@ -18,7 +18,6 @@ namespace TrackYourWorkers
             InitializeComponent();
             korisnik = user;            
         }
-
         private void Ugovori_Load(object sender, EventArgs e)
         {
             dataGridView1.Columns[0].Width = 130;

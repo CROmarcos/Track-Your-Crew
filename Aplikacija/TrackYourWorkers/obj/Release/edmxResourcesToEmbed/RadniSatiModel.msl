@@ -42,6 +42,7 @@
     <EntitySetMapping Name="IsplaceniUgovori">
       <EntityTypeMapping TypeName="RadniSatiModel.IsplaceniUgovori">
         <MappingFragment StoreEntitySet="IsplaceniUgovori">
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="OIB" ColumnName="OIB" />
           <ScalarProperty Name="Student" ColumnName="Student" />
           <ScalarProperty Name="Mjesec" ColumnName="Mjesec" />
@@ -54,6 +55,7 @@
     <EntitySetMapping Name="OtvoreniUgovori">
       <EntityTypeMapping TypeName="RadniSatiModel.OtvoreniUgovori">
         <MappingFragment StoreEntitySet="OtvoreniUgovori">
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="OIB" ColumnName="OIB" />
           <ScalarProperty Name="Student" ColumnName="Student" />
           <ScalarProperty Name="Mjesec" ColumnName="Mjesec" />
@@ -85,5 +87,14 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="RadniSatiModel.Store.sp_renamediagram" />
     <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="RadniSatiModel.Store.sp_upgraddiagrams" />
+    <EntitySetMapping Name="Korisnik">
+      <EntityTypeMapping TypeName="RadniSatiModel.Korisnik">
+        <MappingFragment StoreEntitySet="Korisnik">
+          <ScalarProperty Name="Lozinka" ColumnName="Lozinka" />
+          <ScalarProperty Name="KorisnickoIme" ColumnName="KorisnickoIme" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

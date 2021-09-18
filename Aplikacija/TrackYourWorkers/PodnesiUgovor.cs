@@ -43,7 +43,7 @@ namespace TrackYourWorkers
                     }
                 }
             }
-            lbStudent.Text = "Ugovor za studenta: " + student.Ime + " " + student.Prezime + " (OIB: " + student.OIB + ")";
+            lbStudent.Text = "Ugovor za studenta: " + student.Ime + " " + student.Prezime;
             lbMjesec.Text = "Za mjesec: " + ugovor.Mjesec;
             lbRM.Text = "Radno mjesto: " + rm.NazivRadnogMjesta;
             lbIznos.Text = "Ukupan iznos:";

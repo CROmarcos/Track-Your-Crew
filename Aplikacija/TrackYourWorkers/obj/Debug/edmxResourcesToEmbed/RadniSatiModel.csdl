@@ -44,24 +44,28 @@
       <PropertyRef Name="Student" />
       <PropertyRef Name="NazivRadnogMjesta" />
       <PropertyRef Name="OIB" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Student" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Student" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Mjesec" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="NazivRadnogMjesta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="BrojRadnihSati" Type="Int32" />
     <Property Name="Iznos" Type="String" MaxLength="33" Unicode="false" FixedLength="false" />
     <Property Name="OIB" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
   </EntityType>
   <EntityType Name="OtvoreniUgovori">
     <Key>
       <PropertyRef Name="Student" />
       <PropertyRef Name="NazivRadnogMjesta" />
       <PropertyRef Name="OIB" />
+      <PropertyRef Name="Id" />
     </Key>
     <Property Name="Student" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Mjesec" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="NazivRadnogMjesta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="OIB" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
   </EntityType>
   <Association Name="FK_Ugovor_RadnoMjesto">
     <End Role="RadnoMjesto" Type="Self.RadnoMjesto" Multiplicity="1" />

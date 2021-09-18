@@ -18,5 +18,6 @@ namespace TrackYourWorkers
         public string Mjesec { get; set; }
         public string NazivRadnogMjesta { get; set; }
         public string OIB { get; set; }
+        public int Id { get; set; }
     }
 }

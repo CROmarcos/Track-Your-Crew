@@ -84,3 +84,4 @@ C:\Users\marko\Documents\GitHub\Track-Your-Crew\Aplikacija\TrackYourWorkers\obj\
 C:\Users\marko\Documents\GitHub\Track-Your-Crew\Aplikacija\TrackYourWorkers\obj\Release\TrackYourWorkers.csproj.CopyComplete
 C:\Users\marko\Documents\GitHub\Track-Your-Crew\Aplikacija\TrackYourWorkers\obj\Release\TrackYourWorkers.exe
 C:\Users\marko\Documents\GitHub\Track-Your-Crew\Aplikacija\TrackYourWorkers\obj\Release\TrackYourWorkers.pdb
+C:\Users\marko\Documents\GitHub\Track-Your-Crew\Aplikacija\TrackYourWorkers\obj\Release\TrackYourWorkers.LoginForm.resources

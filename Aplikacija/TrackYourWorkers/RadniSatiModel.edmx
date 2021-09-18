@@ -6,6 +6,23 @@
     <edmx:StorageModels>
     <Schema Namespace="RadniSatiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--Errors Found During Generation:
+warning 6002: The table/view 'RadniSati.dbo.IsplaceniUgovori' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="IsplaceniUgovori">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Student" />
+            <PropertyRef Name="OIB" />
+            <PropertyRef Name="NazivRadnogMjesta" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Student" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="OIB" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="Mjesec" Type="varchar" MaxLength="10" />
+          <Property Name="NazivRadnogMjesta" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BrojRadnihSati" Type="int" />
+          <Property Name="Iznos" Type="varchar" MaxLength="33" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'RadniSati.dbo.Korisnik' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Korisnik">
           <Key>
@@ -15,6 +32,21 @@ warning 6002: The table/view 'RadniSati.dbo.Korisnik' does not have a primary ke
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="KorisnickoIme" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Lozinka" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'RadniSati.dbo.OtvoreniUgovori' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="OtvoreniUgovori">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Student" />
+            <PropertyRef Name="OIB" />
+            <PropertyRef Name="NazivRadnogMjesta" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Student" Type="varchar" MaxLength="101" Nullable="false" />
+          <Property Name="OIB" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="Mjesec" Type="varchar" MaxLength="10" />
+          <Property Name="NazivRadnogMjesta" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="RadnoMjesto">
           <Key>
@@ -50,34 +82,6 @@ warning 6002: The table/view 'RadniSati.dbo.Korisnik' does not have a primary ke
           <Property Name="DatumOtvaranja" Type="date" Nullable="false" />
           <Property Name="Iznos" Type="money" />
           <Property Name="Isplaceno" Type="bit" />
-        </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'RadniSati.dbo.IsplaceniUgovori' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="IsplaceniUgovori">
-          <Key>
-            <PropertyRef Name="Student" />
-            <PropertyRef Name="OIB" />
-            <PropertyRef Name="NazivRadnogMjesta" />
-          </Key>
-          <Property Name="Student" Type="varchar" MaxLength="101" Nullable="false" />
-          <Property Name="OIB" Type="varchar" MaxLength="13" Nullable="false" />
-          <Property Name="Mjesec" Type="varchar" MaxLength="10" />
-          <Property Name="NazivRadnogMjesta" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="BrojRadnihSati" Type="int" />
-          <Property Name="Iznos" Type="varchar" MaxLength="33" />
-        </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'RadniSati.dbo.OtvoreniUgovori' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="OtvoreniUgovori">
-          <Key>
-            <PropertyRef Name="Student" />
-            <PropertyRef Name="OIB" />
-            <PropertyRef Name="NazivRadnogMjesta" />
-          </Key>
-          <Property Name="Student" Type="varchar" MaxLength="101" Nullable="false" />
-          <Property Name="OIB" Type="varchar" MaxLength="13" Nullable="false" />
-          <Property Name="Mjesec" Type="varchar" MaxLength="10" />
-          <Property Name="NazivRadnogMjesta" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="FK_Ugovor_RadnoMjesto">
           <End Role="RadnoMjesto" Type="Self.RadnoMjesto" Multiplicity="1" />
@@ -138,15 +142,9 @@ warning 6002: The table/view 'RadniSati.dbo.OtvoreniUgovori' does not have a pri
           <EntitySet Name="RadnoMjesto" EntityType="Self.RadnoMjesto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ugovor" EntityType="Self.Ugovor" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Korisnik" EntityType="Self.Korisnik" store:Type="Tables" store:Schema="dbo">
+          <EntitySet Name="IsplaceniUgovori" EntityType="Self.IsplaceniUgovori" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [Korisnik].[Id] AS [Id], 
-    [Korisnik].[KorisnickoIme] AS [KorisnickoIme], 
-    [Korisnik].[Lozinka] AS [Lozinka]
-    FROM [dbo].[Korisnik] AS [Korisnik]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="IsplaceniUgovori" EntityType="Self.IsplaceniUgovori" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
+    [IsplaceniUgovori].[Id] AS [Id], 
     [IsplaceniUgovori].[Student] AS [Student], 
     [IsplaceniUgovori].[OIB] AS [OIB], 
     [IsplaceniUgovori].[Mjesec] AS [Mjesec], 
@@ -155,8 +153,16 @@ warning 6002: The table/view 'RadniSati.dbo.OtvoreniUgovori' does not have a pri
     [IsplaceniUgovori].[Iznos] AS [Iznos]
     FROM [dbo].[IsplaceniUgovori] AS [IsplaceniUgovori]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="OtvoreniUgovori" EntityType="Self.OtvoreniUgovori" store:Type="Views" store:Schema="dbo">
+          <EntitySet Name="Korisnik" EntityType="Self.Korisnik" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
+    [Korisnik].[Id] AS [Id], 
+    [Korisnik].[KorisnickoIme] AS [KorisnickoIme], 
+    [Korisnik].[Lozinka] AS [Lozinka]
+    FROM [dbo].[Korisnik] AS [Korisnik]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="OtvoreniUgovori" EntityType="Self.OtvoreniUgovori" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [OtvoreniUgovori].[Id] AS [Id], 
     [OtvoreniUgovori].[Student] AS [Student], 
     [OtvoreniUgovori].[OIB] AS [OIB], 
     [OtvoreniUgovori].[Mjesec] AS [Mjesec], 
@@ -220,24 +226,28 @@ warning 6002: The table/view 'RadniSati.dbo.OtvoreniUgovori' does not have a pri
             <PropertyRef Name="Student" />
             <PropertyRef Name="NazivRadnogMjesta" />
             <PropertyRef Name="OIB" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Student" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Student" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Mjesec" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="NazivRadnogMjesta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="BrojRadnihSati" Type="Int32" />
           <Property Name="Iznos" Type="String" MaxLength="33" Unicode="false" FixedLength="false" />
           <Property Name="OIB" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="OtvoreniUgovori">
           <Key>
             <PropertyRef Name="Student" />
             <PropertyRef Name="NazivRadnogMjesta" />
             <PropertyRef Name="OIB" />
+            <PropertyRef Name="Id" />
           </Key>
           <Property Name="Student" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Mjesec" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="NazivRadnogMjesta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="OIB" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <Association Name="FK_Ugovor_RadnoMjesto">
           <End Role="RadnoMjesto" Type="Self.RadnoMjesto" Multiplicity="1" />
@@ -376,6 +386,7 @@ warning 6002: The table/view 'RadniSati.dbo.OtvoreniUgovori' does not have a pri
           <EntitySetMapping Name="IsplaceniUgovori">
             <EntityTypeMapping TypeName="RadniSatiModel.IsplaceniUgovori">
               <MappingFragment StoreEntitySet="IsplaceniUgovori">
+                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="OIB" ColumnName="OIB" />
                 <ScalarProperty Name="Student" ColumnName="Student" />
                 <ScalarProperty Name="Mjesec" ColumnName="Mjesec" />
@@ -388,6 +399,7 @@ warning 6002: The table/view 'RadniSati.dbo.OtvoreniUgovori' does not have a pri
           <EntitySetMapping Name="OtvoreniUgovori">
             <EntityTypeMapping TypeName="RadniSatiModel.OtvoreniUgovori">
               <MappingFragment StoreEntitySet="OtvoreniUgovori">
+                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="OIB" ColumnName="OIB" />
                 <ScalarProperty Name="Student" ColumnName="Student" />
                 <ScalarProperty Name="Mjesec" ColumnName="Mjesec" />

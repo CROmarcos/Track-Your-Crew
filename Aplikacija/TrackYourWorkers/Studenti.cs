@@ -20,7 +20,6 @@ namespace TrackYourWorkers
             InitializeComponent();
             korisnik = user;
         }
-
         private void Studenti_Load(object sender, EventArgs e)
         {
             if (korisnik != "direktor")
@@ -68,28 +67,27 @@ namespace TrackYourWorkers
 
         private void PrikaziUgovore(Student student)
         {
-            BindingList<IsplaceniUgovori> lista = null;
-            BindingList<IsplaceniUgovori> prikaz = new BindingList<IsplaceniUgovori>();
+            BindingList<IsplaceniUgovori> prikaz = null;
             using (var db = new RadniSatiEntities())
             {
-                db.Student.Attach(student);
-                lista = new BindingList<IsplaceniUgovori>(db.IsplaceniUgovori.ToList());
-            }
-            foreach (var item in lista)
-            {
-                if (item.OIB == student.OIB)
+                prikaz = new BindingList<IsplaceniUgovori>();
+                foreach (var item in db.IsplaceniUgovori.ToList())
                 {
-                    prikaz.Add(item);
+                    if (student.OIB == item.OIB)
+                    {
+                        prikaz.Add(item);
+                    }
                 }
+                isplaceniUgovoriBindingSource.DataSource = prikaz;
             }
-            isplaceniUgovoriBindingSource.DataSource = prikaz;
         }
 
         private void dgvStudenti_SelectionChanged(object sender, EventArgs e)
         {
-            Student selected=studentBindingSource.Current as Student;
+            Student selected = studentBindingSource.Current as Student;
             if (selected != null)
             {
+                Console.WriteLine(selected.OIB);
                 PrikaziUgovore(selected);
             }
         }

@@ -42,6 +42,7 @@
     <EntitySetMapping Name="IsplaceniUgovori">
       <EntityTypeMapping TypeName="RadniSatiModel.IsplaceniUgovori">
         <MappingFragment StoreEntitySet="IsplaceniUgovori">
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="OIB" ColumnName="OIB" />
           <ScalarProperty Name="Student" ColumnName="Student" />
           <ScalarProperty Name="Mjesec" ColumnName="Mjesec" />
@@ -54,6 +55,7 @@
     <EntitySetMapping Name="OtvoreniUgovori">
       <EntityTypeMapping TypeName="RadniSatiModel.OtvoreniUgovori">
         <MappingFragment StoreEntitySet="OtvoreniUgovori">
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="OIB" ColumnName="OIB" />
           <ScalarProperty Name="Student" ColumnName="Student" />
           <ScalarProperty Name="Mjesec" ColumnName="Mjesec" />
