@@ -22,6 +22,8 @@ namespace TrackYourWorkers
 
         private void DodajUgovor_Load(object sender, EventArgs e)
         {
+            dtp.MinDate = Convert.ToDateTime("01/01/2019");
+            dtp.MaxDate = DateTime.Today;
             FillTheCombo();
         }
 

@@ -147,5 +147,13 @@ namespace TrackYourWorkers
                 PrikaziStudente();
             }
         }
+
+        private void btnGraf_Click(object sender, EventArgs e)
+        {
+            Student selected = studentBindingSource.Current as Student;
+            Grafikon forma = new Grafikon(selected);
+            forma.Text = "Praćenje rada za studenta: " + selected.Ime + " " + selected.Prezime;
+            forma.ShowDialog();
+        }
     }
 }

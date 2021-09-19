@@ -171,3 +171,4 @@ C:\Users\marko\Documents\GitHub\Track-Your-Crew\Aplikacija\TrackYourWorkers\obj\
 C:\Users\marko\Documents\GitHub\Track-Your-Crew\Aplikacija\TrackYourWorkers\obj\Debug\TrackYourWorkers.pdb
 C:\Users\marko\Documents\GitHub\Track-Your-Crew\Aplikacija\TrackYourWorkers\obj\Debug\TrackYourWorkers.LoginForm.resources
 C:\Users\marko\Documents\GitHub\Track-Your-Crew\Aplikacija\TrackYourWorkers\obj\Debug\TrackYourWorkers.csprojAssemblyReference.cache
+C:\Users\marko\Documents\GitHub\Track-Your-Crew\Aplikacija\TrackYourWorkers\obj\Debug\TrackYourWorkers.Grafikon.resources

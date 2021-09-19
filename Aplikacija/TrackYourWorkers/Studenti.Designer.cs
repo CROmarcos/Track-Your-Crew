@@ -30,13 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgvStudenti = new System.Windows.Forms.DataGridView();
-            this.btnUnesiStudenta = new System.Windows.Forms.Button();
-            this.btnIzmijeniStudenta = new System.Windows.Forms.Button();
-            this.dgvUgovori = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnObrisi = new System.Windows.Forms.Button();
-            this.isplaceniUgovoriBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,15 +40,23 @@
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ugovorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.iznosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.brojRadnihSatiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nazivRadnogMjestaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mjesecDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnUnesiStudenta = new System.Windows.Forms.Button();
+            this.btnIzmijeniStudenta = new System.Windows.Forms.Button();
+            this.dgvUgovori = new System.Windows.Forms.DataGridView();
             this.studentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mjesecDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nazivRadnogMjestaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.brojRadnihSatiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iznosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isplaceniUgovoriBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnObrisi = new System.Windows.Forms.Button();
+            this.btnGraf = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudenti)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUgovori)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.isplaceniUgovoriBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvStudenti
@@ -82,96 +83,6 @@
             this.dgvStudenti.Size = new System.Drawing.Size(768, 150);
             this.dgvStudenti.TabIndex = 0;
             this.dgvStudenti.SelectionChanged += new System.EventHandler(this.dgvStudenti_SelectionChanged);
-            // 
-            // btnUnesiStudenta
-            // 
-            this.btnUnesiStudenta.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.btnUnesiStudenta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUnesiStudenta.Font = new System.Drawing.Font("Palatino Linotype", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUnesiStudenta.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnUnesiStudenta.Location = new System.Drawing.Point(498, 198);
-            this.btnUnesiStudenta.Name = "btnUnesiStudenta";
-            this.btnUnesiStudenta.Size = new System.Drawing.Size(242, 33);
-            this.btnUnesiStudenta.TabIndex = 1;
-            this.btnUnesiStudenta.Text = "Dodaj novog studenta";
-            this.btnUnesiStudenta.UseVisualStyleBackColor = false;
-            this.btnUnesiStudenta.Click += new System.EventHandler(this.btnUnesiStudenta_Click);
-            // 
-            // btnIzmijeniStudenta
-            // 
-            this.btnIzmijeniStudenta.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.btnIzmijeniStudenta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnIzmijeniStudenta.Font = new System.Drawing.Font("Palatino Linotype", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIzmijeniStudenta.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnIzmijeniStudenta.Location = new System.Drawing.Point(498, 265);
-            this.btnIzmijeniStudenta.Name = "btnIzmijeniStudenta";
-            this.btnIzmijeniStudenta.Size = new System.Drawing.Size(242, 33);
-            this.btnIzmijeniStudenta.TabIndex = 2;
-            this.btnIzmijeniStudenta.Text = "Izmijeni podatke o studentu";
-            this.btnIzmijeniStudenta.UseVisualStyleBackColor = false;
-            this.btnIzmijeniStudenta.Click += new System.EventHandler(this.btnIzmijeniStudenta_Click);
-            // 
-            // dgvUgovori
-            // 
-            this.dgvUgovori.AllowUserToAddRows = false;
-            this.dgvUgovori.AllowUserToDeleteRows = false;
-            this.dgvUgovori.AutoGenerateColumns = false;
-            this.dgvUgovori.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUgovori.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.studentDataGridViewTextBoxColumn,
-            this.mjesecDataGridViewTextBoxColumn,
-            this.nazivRadnogMjestaDataGridViewTextBoxColumn,
-            this.brojRadnihSatiDataGridViewTextBoxColumn,
-            this.iznosDataGridViewTextBoxColumn});
-            this.dgvUgovori.DataSource = this.isplaceniUgovoriBindingSource;
-            this.dgvUgovori.Location = new System.Drawing.Point(12, 217);
-            this.dgvUgovori.Name = "dgvUgovori";
-            this.dgvUgovori.ReadOnly = true;
-            this.dgvUgovori.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUgovori.Size = new System.Drawing.Size(447, 150);
-            this.dgvUgovori.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 14F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(8, 185);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(171, 26);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Isplaćeni ugovori:";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Palatino Linotype", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button1.Location = new System.Drawing.Point(498, 325);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(242, 33);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Ispiši ugovor";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnObrisi
-            // 
-            this.btnObrisi.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.btnObrisi.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnObrisi.Font = new System.Drawing.Font("Palatino Linotype", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnObrisi.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnObrisi.Location = new System.Drawing.Point(498, 386);
-            this.btnObrisi.Name = "btnObrisi";
-            this.btnObrisi.Size = new System.Drawing.Size(242, 33);
-            this.btnObrisi.TabIndex = 6;
-            this.btnObrisi.Text = "Obriši studenta";
-            this.btnObrisi.UseVisualStyleBackColor = false;
-            this.btnObrisi.Click += new System.EventHandler(this.btnObrisi_Click);
-            // 
-            // isplaceniUgovoriBindingSource
-            // 
-            this.isplaceniUgovoriBindingSource.DataSource = typeof(TrackYourWorkers.IsplaceniUgovori);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -242,33 +153,53 @@
             // 
             this.studentBindingSource.DataSource = typeof(TrackYourWorkers.Student);
             // 
-            // iznosDataGridViewTextBoxColumn
+            // btnUnesiStudenta
             // 
-            this.iznosDataGridViewTextBoxColumn.DataPropertyName = "Iznos";
-            this.iznosDataGridViewTextBoxColumn.HeaderText = "Iznos";
-            this.iznosDataGridViewTextBoxColumn.Name = "iznosDataGridViewTextBoxColumn";
-            this.iznosDataGridViewTextBoxColumn.ReadOnly = true;
+            this.btnUnesiStudenta.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnUnesiStudenta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUnesiStudenta.Font = new System.Drawing.Font("Palatino Linotype", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUnesiStudenta.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btnUnesiStudenta.Location = new System.Drawing.Point(498, 178);
+            this.btnUnesiStudenta.Name = "btnUnesiStudenta";
+            this.btnUnesiStudenta.Size = new System.Drawing.Size(242, 33);
+            this.btnUnesiStudenta.TabIndex = 1;
+            this.btnUnesiStudenta.Text = "Dodaj novog studenta";
+            this.btnUnesiStudenta.UseVisualStyleBackColor = false;
+            this.btnUnesiStudenta.Click += new System.EventHandler(this.btnUnesiStudenta_Click);
             // 
-            // brojRadnihSatiDataGridViewTextBoxColumn
+            // btnIzmijeniStudenta
             // 
-            this.brojRadnihSatiDataGridViewTextBoxColumn.DataPropertyName = "BrojRadnihSati";
-            this.brojRadnihSatiDataGridViewTextBoxColumn.HeaderText = "Broj radnih sati";
-            this.brojRadnihSatiDataGridViewTextBoxColumn.Name = "brojRadnihSatiDataGridViewTextBoxColumn";
-            this.brojRadnihSatiDataGridViewTextBoxColumn.ReadOnly = true;
+            this.btnIzmijeniStudenta.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnIzmijeniStudenta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnIzmijeniStudenta.Font = new System.Drawing.Font("Palatino Linotype", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIzmijeniStudenta.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btnIzmijeniStudenta.Location = new System.Drawing.Point(498, 233);
+            this.btnIzmijeniStudenta.Name = "btnIzmijeniStudenta";
+            this.btnIzmijeniStudenta.Size = new System.Drawing.Size(242, 33);
+            this.btnIzmijeniStudenta.TabIndex = 2;
+            this.btnIzmijeniStudenta.Text = "Izmijeni podatke o studentu";
+            this.btnIzmijeniStudenta.UseVisualStyleBackColor = false;
+            this.btnIzmijeniStudenta.Click += new System.EventHandler(this.btnIzmijeniStudenta_Click);
             // 
-            // nazivRadnogMjestaDataGridViewTextBoxColumn
+            // dgvUgovori
             // 
-            this.nazivRadnogMjestaDataGridViewTextBoxColumn.DataPropertyName = "NazivRadnogMjesta";
-            this.nazivRadnogMjestaDataGridViewTextBoxColumn.HeaderText = "Radno mjesto";
-            this.nazivRadnogMjestaDataGridViewTextBoxColumn.Name = "nazivRadnogMjestaDataGridViewTextBoxColumn";
-            this.nazivRadnogMjestaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // mjesecDataGridViewTextBoxColumn
-            // 
-            this.mjesecDataGridViewTextBoxColumn.DataPropertyName = "Mjesec";
-            this.mjesecDataGridViewTextBoxColumn.HeaderText = "Mjesec";
-            this.mjesecDataGridViewTextBoxColumn.Name = "mjesecDataGridViewTextBoxColumn";
-            this.mjesecDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dgvUgovori.AllowUserToAddRows = false;
+            this.dgvUgovori.AllowUserToDeleteRows = false;
+            this.dgvUgovori.AutoGenerateColumns = false;
+            this.dgvUgovori.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUgovori.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.studentDataGridViewTextBoxColumn,
+            this.mjesecDataGridViewTextBoxColumn,
+            this.nazivRadnogMjestaDataGridViewTextBoxColumn,
+            this.brojRadnihSatiDataGridViewTextBoxColumn,
+            this.iznosDataGridViewTextBoxColumn});
+            this.dgvUgovori.DataSource = this.isplaceniUgovoriBindingSource;
+            this.dgvUgovori.Location = new System.Drawing.Point(12, 217);
+            this.dgvUgovori.Name = "dgvUgovori";
+            this.dgvUgovori.ReadOnly = true;
+            this.dgvUgovori.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvUgovori.Size = new System.Drawing.Size(447, 150);
+            this.dgvUgovori.TabIndex = 3;
             // 
             // studentDataGridViewTextBoxColumn
             // 
@@ -278,12 +209,97 @@
             this.studentDataGridViewTextBoxColumn.ReadOnly = true;
             this.studentDataGridViewTextBoxColumn.Visible = false;
             // 
+            // mjesecDataGridViewTextBoxColumn
+            // 
+            this.mjesecDataGridViewTextBoxColumn.DataPropertyName = "Mjesec";
+            this.mjesecDataGridViewTextBoxColumn.HeaderText = "Mjesec";
+            this.mjesecDataGridViewTextBoxColumn.Name = "mjesecDataGridViewTextBoxColumn";
+            this.mjesecDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nazivRadnogMjestaDataGridViewTextBoxColumn
+            // 
+            this.nazivRadnogMjestaDataGridViewTextBoxColumn.DataPropertyName = "NazivRadnogMjesta";
+            this.nazivRadnogMjestaDataGridViewTextBoxColumn.HeaderText = "Radno mjesto";
+            this.nazivRadnogMjestaDataGridViewTextBoxColumn.Name = "nazivRadnogMjestaDataGridViewTextBoxColumn";
+            this.nazivRadnogMjestaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // brojRadnihSatiDataGridViewTextBoxColumn
+            // 
+            this.brojRadnihSatiDataGridViewTextBoxColumn.DataPropertyName = "BrojRadnihSati";
+            this.brojRadnihSatiDataGridViewTextBoxColumn.HeaderText = "Broj radnih sati";
+            this.brojRadnihSatiDataGridViewTextBoxColumn.Name = "brojRadnihSatiDataGridViewTextBoxColumn";
+            this.brojRadnihSatiDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // iznosDataGridViewTextBoxColumn
+            // 
+            this.iznosDataGridViewTextBoxColumn.DataPropertyName = "Iznos";
+            this.iznosDataGridViewTextBoxColumn.HeaderText = "Iznos";
+            this.iznosDataGridViewTextBoxColumn.Name = "iznosDataGridViewTextBoxColumn";
+            this.iznosDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // isplaceniUgovoriBindingSource
+            // 
+            this.isplaceniUgovoriBindingSource.DataSource = typeof(TrackYourWorkers.IsplaceniUgovori);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 14F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(8, 185);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(171, 26);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Isplaćeni ugovori:";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Font = new System.Drawing.Font("Palatino Linotype", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.button1.Location = new System.Drawing.Point(498, 284);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(242, 33);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Ispiši ugovor";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnObrisi
+            // 
+            this.btnObrisi.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnObrisi.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnObrisi.Font = new System.Drawing.Font("Palatino Linotype", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnObrisi.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btnObrisi.Location = new System.Drawing.Point(498, 386);
+            this.btnObrisi.Name = "btnObrisi";
+            this.btnObrisi.Size = new System.Drawing.Size(242, 33);
+            this.btnObrisi.TabIndex = 6;
+            this.btnObrisi.Text = "Obriši studenta";
+            this.btnObrisi.UseVisualStyleBackColor = false;
+            this.btnObrisi.Click += new System.EventHandler(this.btnObrisi_Click);
+            // 
+            // btnGraf
+            // 
+            this.btnGraf.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnGraf.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGraf.Font = new System.Drawing.Font("Palatino Linotype", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGraf.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btnGraf.Location = new System.Drawing.Point(498, 334);
+            this.btnGraf.Name = "btnGraf";
+            this.btnGraf.Size = new System.Drawing.Size(242, 33);
+            this.btnGraf.TabIndex = 7;
+            this.btnGraf.Text = "Prikaži grafikon";
+            this.btnGraf.UseVisualStyleBackColor = false;
+            this.btnGraf.Click += new System.EventHandler(this.btnGraf_Click);
+            // 
             // Studenti
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AntiqueWhite;
             this.ClientSize = new System.Drawing.Size(791, 437);
+            this.Controls.Add(this.btnGraf);
             this.Controls.Add(this.btnObrisi);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
@@ -297,9 +313,9 @@
             this.Text = "Studenti";
             this.Load += new System.EventHandler(this.Studenti_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudenti)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUgovori)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.isplaceniUgovoriBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -338,5 +354,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nazivRadnogMjestaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn brojRadnihSatiDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn iznosDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnGraf;
     }
 }
